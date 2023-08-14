@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./dist/output.css" rel="stylesheet" />
+    <script defer src="src/assets/fontawesome/js/solid.min.js"></script>
+    <script defer src="src/assets/fontawesome/js/fontawesome.min.js"></script>
+    <script>
+      window.onload = () => {
+        const mobileMenuIcon = document.getElementById("mobile-menu-button");
+        mobileMenuIcon.addEventListener("click", () => {
+          if (mobileMenuIcon.classList.contains("open")) {
+            mobileMenuIcon.classList.remove("open");
+          } else {
+            mobileMenuIcon.classList.add("open");          
+          }
+        });
+      
+        const categoriesMenuIcon = document.getElementById("categories-menu-button");
+        categoriesMenuIcon.addEventListener("click", () => {
+          if (categoriesMenuIcon.classList.contains("open")) {
+            categoriesMenuIcon.classList.remove("open");
+          } else {
+            categoriesMenuIcon.classList.add("open");          
+          }
+        });
+
+        const darkModeToggle = document.getElementById("dark-mode-toggle");
+        darkModeToggle.addEventListener("click", () => {
+          if (document.body.classList.contains("dark")) {
+            document.body.classList.remove("dark");
+          } else {
+            document.body.classList.add("dark");
+          }
+        });
+
+        const previousButton = document.getElementById("previous");
+        const nextButton = document.getElementById("next");
+        const carousel = document.getElementById("carousel");
+        previousButton.addEventListener("click", () => {
+          const itemWidth = carousel.getElementsByTagName("div")[0].clientWidth;
+          carousel.scrollLeft = carousel.scrollLeft - itemWidth;
+        });
+
+        nextButton.addEventListener("click", () => {
+          const itemWidth = carousel.getElementsByTagName("div")[0].clientWidth;
+          carousel.scrollLeft = carousel.scrollLeft + itemWidth;
+        });
+
+      }
+    </script>
+  </head>
+  <body class="dark">
+    <main class="bg-zinc-200 dark:bg-zinc-900">
+      <header class="text-zinc-200">
+        <div id="dark-mode-toggle" class="fixed top-24 right-0 z-10 inline-block w-12 cursor-pointer rounded-l-lg bg-zinc-900 p-2 text-3xl text-zinc-200 dark:bg-zinc-200 dark:text-zinc-900">
+          <i class="fa-solid fa-sun dark:hidden"></i>
+          <i class="fa-solid fa-moon hidden dark:inline"></i>
+        </div>
+        <nav class="sticky flex top-0 z-10 bg-gradient-to-r from-black to-orange-400 ">
+          <div class="flex items-center p-2 gap-2">
+            <img src="src/assets/images/logo3.png" alt="logo1" width="50"/>
+            <div class="font-bold text-2xl">tV:<span class="text-orange-300">mJ</span></div>
+          </div>
+          <div class="block md:hidden ml-auto p-4 my-auto cursor-pointer">
+            <div id="mobile-menu-button" class="group peer">
+              <div class="h-1 w-8 rounded-full bg-zinc-200 group-open:rotate-45 transition-all group-open:top-2 relative top-0"></div>
+              <div class="h-1 w-8 rounded-full bg-zinc-200 mt-1 mb-1 group-open:opacity-0 transition-all"></div>
+              <div class="h-1 w-8 rounded-full bg-zinc-200 group-open:-rotate-45 transition-all group-open:-top-2 relative top-0"></div>
+            </div>
+            <div class="absolute w-full left-0 top-[62px] bg-gradient-to-r from-black to bg-orange-400 peer-open:block transition-all hidden">
+              <div class="relative flex h-full cursor-pointer items-center justify-center p-4 font-bold  text-orange-100 hover:text-zinc-200 transition-colors hover:bg-white/5"><span>Home</span></div>
+              <div class="relative flex h-full cursor-pointer items-center justify-center p-4 font-bold  text-orange-100 hover:text-zinc-200 transition-colors hover:bg-white/5"><span>Legend</span></div>
+              <div id="categories-menu-button" class="group relative h-full cursor-pointer text-orange-100 hover:text-zinc-200 transition-colors hover:bg-white/5">
+                <div class="p-4 text-center font-bold">Categories</div>
+                <div class="hidden group-open:block ">
+                <div class="relative text-center p-4 text-orange-100 hover:bg-white/5"><span>Web Projects</span></div>
+                <div class="relative text-center p-4 text-orange-100 hover:bg-white/5"><span>Mobile Projects</span></div>
+                </div>
+              </div>
+              <div class="relative flex h-full cursor-pointer items-center justify-center p-4 font-bold  text-orange-100 hover:text-zinc-200 transition-colors hover:bg-white/5"><span>About Vic</span></div>
+            </div>
+          </div>
+          <div class="hidden flex-1 md:flex items-center justify-end">
+            <div class="menu-item">
+              <span>Home</span>
+            </div>
+            <div class="menu-item">
+              <span>Legend</span>
+            </div>
+            <div class="menu-item group">
+              <span>Categories</span>
+              <div class="hidden group-hover:block absolute top-full p-2 bg-orange-400 right-0 whitespace-nowrap rounded-b-md text-right">
+                <div class="p-4 font-bold hover:bg-white/5 hover:text-zinc-200 transition-colors ease-in-out cursor-pointer text-orange-100"><span>
+                  Web Projects
+                </span></div>
+                <div class="p-4 font-bold hover:bg-white/5 hover:text-zinc-200 transition-colors ease-in-out cursor-pointer text-orange-100"><span>   
+                  Mobile Apps               
+                </span></div>
+              </div>
+            </div>
+            <div class="menu-item">
+              <span>About Vic</span>
+            </div>
+          </div>
+          <!-- The Victorian! -->
+        </nav>
+        <div style="background-image: url(src/assets/images/bg.png);" class="bg-cover bg-center bg-fixed text-black flex flex-col min-h-[400px] items-center justify-center h-[calc(100vh-199px)]">
+           <div class="bg-white/30 py-2 px-4 rounded-xl text-center backdrop-blur-md">
+            <div class="relative">
+              <img src="src/assets/images/32.jpeg" alt="The Victorian Logo">
+              <div class="flex item-center items-center justify-center mt-[-70px] mb-5">
+                <div class="bg-orange-500 flex h-14 w-14 rounded-full items-center justify-center gap-1">
+                  <div class="h-2 w-1 bg-orange-300 rounded-full animate-wavey"></div>
+                  <div class="w-1 h-3 bg-orange-200 rounded-full animate-wavey animation-delay-200"></div>
+                  <div class="w-1 h-4 bg-orange-100 rounded-full animate-wavey animation-delay-[150ms]"></div>
+                  <div class="w-1 h-3 bg-orange-200 rounded-full animate-wavey animation-delay-300"></div>
+                  <div class="h-2 w-1 bg-orange-300 rounded-full animate-wavey animation-delay-[75ms]"></div>
+                </div>
+              </div>
+            </div>
+            <div class="text-5xl font-bold">
+              tV:<span class="text-orange-500" >mJ</span>
+            </div>
+           </div>
+           <div class="mt-3 text-sm font-bold bg-white/30 py-2 px-4 rounded-xl text-center backdrop-blur-md">
+            Keep me updated with what you're up to, ViC
+           </div>
+           <div class="mt-3 flex gap-2">
+            <input type="email" placeholder="Email" class="rounded-sm border border-white/40 bg-white/30 backdrop-blur-md p-2 font-bold text-orange-100 placeholder-orange-200 caret-orange-400 outline-orange-500" />
+            <div class="cursor-pointer rounded-sm bg-orange-400 py-2 px-4 font-bold transition-colors hover:bg-orange-300 hover:shadow-lg">Submit              
+            </div>
+           </div>
+        </div>
+      </header>
+      <div class="max-w-screen-lg mx-auto mt-20 text-zinc-900 dark:text-zinc-200">
+        <h2>Headliners</h2>
+          <p>Experience the Victorian delight from these made-up projects across multiple days
+          that coding fans are calling “one of the many gigs that will happen
+          this year”</p>
+          <div class="flex">
+            <div
+              id="previous"
+              class="relative -top-8 flex cursor-pointer items-center justify-center p-2 text-5xl"
+            >
+              <i class="fas fa-angle-left"></i>
+            </div>
+          <div id="carousel" class="mt-4 flex w-full gap-4 pb-5 snap-x overflow-x-auto scroll-smooth flex-1">
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/1.png');" class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Coulda been victorian</h5>
+              <h6>But nah - 3rd Day</h6>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/2.png');" class="object-fit contain h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Like a Phoenix</h5>
+              <h6>I Will Rise</h6>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/3.png');" class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Almost, but I'm number 4</h5>
+              <h6>1, 2, 3</h6>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/4.png');" class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Finally, The Victorian</h5>
+              <h6>Definite Yeah... All of Life</h6>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/5.png');" class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Because my life will be amazing</h5>
+              <h6>All Year Long</h6>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/6.png');" class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Such a beautiful creation</h5>
+              <h6>On the part of the roses</h6>
+            </div>
+            <div class="min-w-[80%] md:min-w-[40%]">
+              <div style="background-image: url('src/assets/images/heroz.jpg');" class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20"></div>
+              <h5 class="mt-2">Die Welt</h5>
+              <h6>Everyday</h6>
+            </div>
+          </div>
+          <div
+            id="next"
+            class="relative -top-8 flex cursor-pointer items-center justify-center p-2 text-5xl"
+          >
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+          <h2 class="mt-20">Lineup</h2>
+          <p>
+            Follow the timetable and stage to ensure you don't miss your favourite
+            Victorias
+          </p>
+          <div class="relative mt-5 rounded-lg bg-zinc-800 py-4 px-2 text-zinc-200">
+            <div class="absolute top-0 left-1/2 -ml-[8px] h-full w-4 rounded-full bg-gradient-to-b from-sky-900 via-cyan-900 to-teal-900">
+              <div class="sticky top-1/2">
+                <div class="relative h-4 w-4">
+                  <div class="absolute h-4 w-4 animate-ping rounded-full bg-orange-300 opacity-75"></div>
+                  <div class="relative h-4 w-4 rounded-full bg-orange-300"></div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+              <div>
+                <h4 class="my-4 rounded-lg bg-zinc-900 p-2">1st July</h4>
+              </div>
+              <div></div>
+              <div class="text-right">
+                <div class="font-bold">Victoria Carlisle</div>
+                <div class="text-zinc-400">6pm - Global Stage</div>
+              </div>
+              <div></div>
+              <div></div>
+              <div>
+                <div class="font-bold">Victoria Carlisle</div>
+                <div class="text-zinc-400">6pm - Global Stage</div>
+              </div>
+              <div>
+                <h4 class="my-4 rounded-lg bg-zinc-900 p-2">1st July</h4>
+              </div>
+              <div></div>
+              <div class="text-right">
+                <div class="font-bold">Victoria Carlisle</div>
+                <div class="text-zinc-400">6pm - Global Stage</div>
+              </div>
+              <div></div>
+              <div></div>
+              <div>
+                <div class="font-bold">Victoria Carlisle</div>
+                <div class="text-zinc-400">6pm - Global Stage</div>
+              </div>
+            </div>
+          </div>
+          <h2 class="mt-20">Up Nextsss</h2>
+          <table class="mt-5 table w-full border-collapse border border-orange-500">
+          <thead class="text-lg font-bold">
+            <td class="border border-orange-500 p-3">Projects</td>
+            <td class="border border-orange-500 p-3">Estimated Costs</td>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-orange-500 py-2 px-3">
+                Web Projects
+              </td>
+              <td class="border border-orange-500 py-2 px-3">£500</td>
+            </tr>
+            <tr>
+              <td class="border border-orange-500 py-2 px-3">Mobile Projects</td>
+              <td class="border border-orange-500 py-2 px-3">£1000</td>
+            </tr>
+          </tbody>
+          <caption class="caption-bottom" style="caption-side: bottom;">
+            Once I'm done, I start something else!
+          </caption>
+        </table>
+      </div>
+    </main>
+    
+  </body>
+</html>
